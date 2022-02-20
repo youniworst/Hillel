@@ -30,4 +30,33 @@ const listArr = [{
 
 // Для каждого созданного li добавить класс list-item
 
-let ul = document.createElement('ul')
+function createList(arr) {
+    let ul = document.createElement('ul');
+    arr.forEach(element => {
+        for (const key in element) {
+            let li = document.createElement('li');
+            ul.append(li);
+            li.append(element[key]);
+            li.className = 'list-item';
+        }
+    });
+    document.body.append(ul)
+}
+
+createList(listArr)
+
+// Часть 2. После это найти все элементы li и перебрать их в цикле.
+
+// Сделать функцию которая будет возвращать рандомный цвет, и для каждого li применить этот рандомный цвет текста. (Это все сделать с помощью js)
+
+function addColor() {
+    function randomNum() {
+        return Math.floor(Math.random() * 255);
+    }
+    let elements = document.getElementsByClassName('list-item');
+    for (const iterator of elements) {
+        iterator.style.color = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+    }
+}
+
+addColor()
