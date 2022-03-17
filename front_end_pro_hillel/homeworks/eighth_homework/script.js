@@ -21,7 +21,7 @@ scene.addEventListener("mousemove", function (e) {
 
 	console.log(left)
 	console.log(sceneContainerRect);
-	if(left < 0 || left > sceneContainerRect.width - ballRect.width) return;  //Горизонтальные грагицы
+	if(left < 0 || left > sceneContainerRect.width - ballRect.width) return;  //Горизонтальные границы
 	if(top < 0 || top > sceneContainerRect.height - ballRect.height) return;  //Вертикальные границы
 
 	ball.style.transform = `translate(${left}px, ${top}px)`;
