@@ -49,6 +49,9 @@ const obj = {
                         i: 10,
                     },
                     j: null,
+                    l: {
+                        m: 25
+                    }
                 },
                 o: 'olol'
             }
