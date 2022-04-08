@@ -1,4 +1,4 @@
-use strict';
+'use strict';
 
 // Создать объект shape со свойствами width и height, который будет прототипом для функций
 // каждая из этих функция, будет вызвана как функция конструктор (будет создавать новый объект)
@@ -11,34 +11,36 @@ const shape = {
     squareDate: 0,
 }
 
-function createSquareProperty(obj, squareFormula) {
-    return Object.defineProperty(obj, 'square', {
-        get: function () {
-            return obj.squareDate
-        },
+function figureAccessor(obj, getterFunc) {
+    Object.defineProperty(obj, 'square', {
         set: function (value) {
             if (value.length != 2) throw new Error('number of square params must be equal to two ')
             let [width, height] = value;
             obj.width = width;
             obj.height = height;
-            obj.squareDate = eval(squareFormula)
-        }
+        },
+        get: getterFunc
     })
 }
 
-
 function Square() {
-    createSquareProperty(this, 'this.width * this.height')
+    figureAccessor(this, function () {
+        return this.squareDate = this.width * this.height
+    })
     this.__proto__ = shape;
 }
 
 function Circle() {
-    createSquareProperty(this, 'Math.PI * (this.width ** 2) / 4')
+    figureAccessor(this, function () {
+        return this.squareDate = Math.PI * (this.width ** 2) / 4
+    })
     this.__proto__ = shape;
 }
 
 function Rectangle() {
-    createSquareProperty(this, '0.5 * this.height * this.width')
+    figureAccessor(this, function () {
+        return this.squareDate = 0.5 * this.height * this.width
+    })
     this.__proto__ = shape;
 }
 
