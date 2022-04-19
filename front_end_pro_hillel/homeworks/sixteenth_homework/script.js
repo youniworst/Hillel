@@ -23,8 +23,8 @@ function changeAvatar() {
     imgEl.src = src
 }
 
-async function downoloadAvatar() {
-    await fetch(imgEl.src)
+function downoloadAvatar() {
+    fetch(imgEl.src)
         .then((res) => {
             return res.blob();
         })
