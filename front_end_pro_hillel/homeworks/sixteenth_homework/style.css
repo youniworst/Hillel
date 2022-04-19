@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    justify-content: space-between;
+    height: 150px;
+    padding-top: 20px;
+    margin-right: 50px;
+}
+
+.form-element {
+    height: 20px;
+    padding: 2px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img {
+    max-width: 200px;
+    height: 200px;
+}
